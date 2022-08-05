@@ -25,5 +25,5 @@ echo "Updating Postfix's hashtables to use the new file..."
 sudo postmap /etc/postfix/sasl_passwd && 
 echo "Restarting the Posfix service..."
 sudo systemctl restart postfix && 
-echo "All Done!"
+echo "All Done! Now test the email works by trying a forgotten password reset on the website."
 exit
