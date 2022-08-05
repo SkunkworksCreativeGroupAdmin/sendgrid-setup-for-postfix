@@ -14,12 +14,12 @@ echo ""
 read APIKEY
 clear
 echo "Using API Key \"$APIKEY\""
-touch output.txt
+#touch output.txt
 echo -e "\n\n#smtp_sasl_auth_enable = yes\n#smtp_sasl_password_maps = hash:/etc/postfix/sasl_passwd\n#smtp_sasl_security_options = noanonymous\n#smtp_sasl_tls_security_options = noanonymous\n#smtp_tls_security_level = encrypt\n#header_size_limit = 4096000\n#relayhost = [smtp.sendgrid.net]:587" >> /etc/postfix/main.cf &&
 touch /etc/postfix/sasl_passwd2 
 echo -e "[smtp.sendgrid.net]:587 apikey:$APIKEY" >> /etc/postfix/sasl_passwd2 && 
-#echo "Making sure the file has restricted read and write access only for root..."
-#sudo chmod 600 /etc/postfix/sasl_passwd && 
+echo "Making sure the file has restricted read and write access only for root..."
+sudo chmod 600 /etc/postfix/sasl_passwd2 && 
 #echo "Updating Postfix's hashtables to use the new file..."
 #sudo postmap /etc/postfix/sasl_passwd && 
 #echo "Restarting the Posfix service..."
