@@ -23,7 +23,7 @@ echo "Making sure the new file has restricted read and write access only for roo
 sudo chmod 600 /etc/postfix/sasl_passwd && 
 echo "Updating Postfix's hashtables to use the new file..."
 sudo postmap /etc/postfix/sasl_passwd && 
-echo "Restarting the Posfix service..."
+echo "Restarting the Postfix service..."
 sudo systemctl restart postfix && 
 #echo "Now sending a test email..."
 #sudo -u serverpilot -i wp --path=apps/[APPNAME]/public eval "wp_mail('mailtest@skunkworks.ca', 'Email Test', 'If you are seeing this email then Wordpress is sending emails without issue.');"
