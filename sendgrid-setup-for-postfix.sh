@@ -25,7 +25,7 @@ echo "Updating Postfix's hashtables to use the new file..."
 sudo postmap /etc/postfix/sasl_passwd && 
 echo "Restarting the Postfix service..."
 sudo systemctl restart postfix && 
-#echo "Now sending a test email..."
-#sudo -u serverpilot -i wp --path=apps/[APPNAME]/public eval "wp_mail('mailtest@skunkworks.ca', 'Email Test', 'If you are seeing this email then Wordpress is sending emails without issue.');"
+echo "Now sending a test email..."
+sudo -u serverpilot -i wp --path=apps/[APPNAME]/public eval "wp_mail('mailtest@skunkworks.ca', 'Email Test', 'If you are seeing this email then Wordpress is sending emails without issue.');"
 echo "All Done! Now test that the email works by trying a forgotten password reset on the website."
 exit
