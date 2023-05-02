@@ -11,6 +11,11 @@ echo ""
 echo "Press Ctrl-C to quit or paste in the key now."
 echo ""
 read APIKEY
+echo ""
+echo "Now enter the production website's App folder name. eg: production"
+echo ""
+read APPNAME
+echo ""
 clear
 echo "Using API Key \"$APIKEY\""
 echo "Adding lines to /etc/postfix/main.cf..."
@@ -26,6 +31,6 @@ sudo postmap /etc/postfix/sasl_passwd &&
 echo "Restarting the Postfix service..."
 sudo systemctl restart postfix && 
 #echo "Now sending a test email..."
-#sudo -u serverpilot -i wp --path=apps/[APPNAME]/public eval "wp_mail('mailtest@skunkworks.ca', 'Email Test', 'If you are seeing this email then Wordpress is sending emails without issue.');"
+#sudo -u serverpilot -i wp --path=apps/[$APPNAME]/public eval "wp_mail('mailtest@skunkworks.ca', 'Email Test', 'If you are seeing this email then Wordpress is sending emails without issue.');"
 echo "All Done! Now test that the email works by trying a forgotten password reset on the website."
 exit
